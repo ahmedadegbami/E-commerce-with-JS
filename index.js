@@ -14,7 +14,7 @@ headers: {
 
   products.forEach(product => {
    let col = document.createElement("div")
-   col.className = "col-3" 
+   col.className = "col-3 mb-5 image-fluid" 
     col.innerHTML = `<div class="card">
           <img src=${product.imageUrl} class="card-img-top" alt="..." />
           <div class="card-body">
@@ -22,7 +22,7 @@ headers: {
             <p class="card-text">
               ${product.description}
             </p>
-            <a href="#" class="btn btn-primary">${product.price}€</a>
+            <a href="#" class="btn btn-primary">${product.price} €</a>
           </div>
         </div>`
 
