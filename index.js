@@ -16,7 +16,7 @@ headers: {
    let col = document.createElement("div")
    col.className = "col-3 mb-5 image-fluid" 
     col.innerHTML = `<div class="card">
-          <img src=${product.imageUrl} class="card-img-top" alt="..." />
+          <img src=${product.imageUrl} class="card-img-top" height="300" alt="..." />
           <div class="card-body">
             <h5 class="card-title">${product.brand}</h5>
             <p class="card-text">
