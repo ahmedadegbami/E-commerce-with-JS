@@ -15,7 +15,7 @@ const displayProducts = async () => {
 
   products.forEach((product) => {
     let col = document.createElement('div')
-    col.className = 'col-3 mb-5 image-fluid'
+    col.className = 'col-12 col-sm-6 col-md-3 mb-5 image-fluid'
     col.innerHTML = `<div class="card">
           
           <div class="card-body">
