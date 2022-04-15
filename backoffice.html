@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -16,15 +16,15 @@
       crossorigin="anonymous"
     />
 
-    <title>Hello, world!</title>
+    <title>🛍️Strivazon</title>
     <style>
-   .validate input:invalid,
-   .validate textarea:invalid {
+      .validate input:invalid,
+      .validate textarea:invalid {
         border-color: red;
       }
 
-   .validate input:valid,
-   .validate textarea:valid {
+      .validate input:valid,
+      .validate textarea:valid {
         border-color: #ddffdd;
       }
     </style>
@@ -58,8 +58,11 @@
       </div>
     </nav>
     <div class="container">
-      <form onsubmit="postProduct(event)">
+      <form onsubmit="postProduct(event)" class="d-flex flex-column">
         <h2 id="poster" class="text-primary">Post Item</h2>
+        <div id="alerter" class="alert alert-success" role="alert">
+          Fill the form to post your items
+        </div>
         <div class="form-group">
           <label for="name">Name:</label>
           <input
@@ -109,31 +112,37 @@
             required
           />
         </div>
-        <button type="reset" class="btn btn-warning">Reset</button>
-        <button id="editor" type="submit" class="btn btn-success" onclick="validated(event)">
-          Submit
-        </button>
-        <button
-          type="button"
-          class="btn btn-danger float-right"
-          onclick="deleteProduct()"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-trash3-fill"
-            viewBox="0 0 16 16"
+        <div class="d-flex">
+          <button type="reset" class="btn btn-warning mr-2">Reset</button>
+          <button
+            id="editor"
+            type="submit"
+            class="btn btn-success"
+            onclick="validated(event)"
           >
-            <path
-              d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
-            />
-          </svg>
-        </button>
+            Submit
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger ml-auto"
+            onclick="deleteProduct()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-trash3-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+              />
+            </svg>
+          </button>
+        </div>
       </form>
     </div>
-
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -146,4 +155,4 @@
     ></script>
     <script src="./backoffice.js"></script>
   </body>
-</html> -->
+</html>

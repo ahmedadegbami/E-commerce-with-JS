@@ -1,3 +1,6 @@
 {
-  "recommendations": ["SimonSiefke.prettier-vscode"]
+  "recommendations": [
+    "simonsiefke.prettier-vscode",
+    "esbenp.prettier-vscode"
+  ]
 }
