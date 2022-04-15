@@ -17,6 +17,17 @@
     />
 
     <title>Hello, world!</title>
+    <style>
+      input:invalid,
+      textarea:invalid {
+        border-color: red;
+      }
+
+      input:valid,
+      textarea:valid {
+        border-color: #ddffdd;
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -48,6 +59,7 @@
     </nav>
     <div class="container">
       <form onsubmit="postProduct(event)">
+        <h2 id="poster" class="text-primary">Post Item</h2>
         <div class="form-group">
           <label for="name">Name:</label>
           <input
@@ -55,11 +67,17 @@
             id="name"
             aria-describedby="emailHelp"
             class="form-control"
+            required
           />
         </div>
         <div class="form-group">
           <label for="decription">Decription:</label>
-          <textarea id="decription" class="form-control" rows="10"></textarea>
+          <textarea
+            id="decription"
+            class="form-control"
+            rows="10"
+            required
+          ></textarea>
         </div>
         <div class="form-group">
           <label for="brand">Brand:</label>
@@ -68,6 +86,7 @@
             id="brand"
             aria-describedby="emailHelp"
             class="form-control"
+            required
           />
         </div>
         <div class="form-group">
@@ -77,6 +96,7 @@
             id="image"
             aria-describedby="emailHelp"
             class="form-control"
+            required
           />
         </div>
         <div class="form-group">
@@ -86,14 +106,17 @@
             id="price"
             aria-describedby="emailHelp"
             class="form-control"
+            required
           />
         </div>
-        <button type="reset" class="btn btn-primary">Reset</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-warning">Reset</button>
+        <button id="editor" type="submit" class="btn btn-success">
+          Submit
+        </button>
         <button
           type="button"
           class="btn btn-danger float-right"
-          onclick="deletePruduct()"
+          onclick="deleteProduct()"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -121,85 +144,6 @@
       integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
       crossorigin="anonymous"
     ></script>
-    <script>
-      let option = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YmZhNWE5MDIzOTAwMTVkOTY1ZGIiLCJpYXQiOjE2NDk4NTIzMjUsImV4cCI6MTY1MTA2MTkyNX0.byIP9sGJBEu1KNeVEtoF2tsWgEOtohWDDZd-GgY2rUQ",
-        },
-      };
-      //  <<<<<<<<<<<< EDIT OT POST >>>>>>>>>>>>>>>>
-      const paramID = new URLSearchParams(window.location.search).get(
-        "productID"
-      );
-
-      console.log(paramID);
-
-      const method = paramID ? "PUT" : "POST";
-      const endpoint = paramID
-        ? "https://striveschool-api.herokuapp.com/api/product/" + paramID
-        : "https://striveschool-api.herokuapp.com/api/product/";
-
-      window.onload = async () => {
-        if (paramID) {
-          try {
-            const response = await fetch(endpoint, option);
-            let { name, description, brand, imageUrl, price } =
-              await response.json();
-            document.getElementById("name").value = name;
-            document.getElementById("decription").value = description;
-            document.getElementById("brand").value = brand;
-            document.getElementById("image").value = imageUrl;
-            document.getElementById("price").value = price;
-          } catch (err) {
-            console.log(err);
-          }
-        }
-      };
-
-      let postProduct = async (event) => {
-        event.preventDefault();
-        try {
-          let myObject = {
-            name: document.getElementById("name").value,
-            description: document.getElementById("decription").value,
-            brand: document.getElementById("brand").value,
-            imageUrl: document.getElementById("image").value,
-            price: document.getElementById("price").value,
-          };
-
-          const response = await fetch(
-            "https://striveschool-api.herokuapp.com/api/product/",
-            {
-              method: "POST",
-              body: JSON.stringify(myObject),
-              headers: {
-                "Content-Type": "application/json",
-                Authorization:
-                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YmZhNWE5MDIzOTAwMTVkOTY1ZGIiLCJpYXQiOjE2NDk4NTIzMjUsImV4cCI6MTY1MTA2MTkyNX0.byIP9sGJBEu1KNeVEtoF2tsWgEOtohWDDZd-GgY2rUQ",
-              },
-            }
-          );
-          const products = await response.json();
-          console.log(products);
-        } catch (err) {
-          console.log(err);
-        }
-      };
-
-      let deletePruduct = () => {
-        fetch("https://striveschool-api.herokuapp.com/api/product/" + paramID, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YmZhNWE5MDIzOTAwMTVkOTY1ZGIiLCJpYXQiOjE2NDk4NTIzMjUsImV4cCI6MTY1MTA2MTkyNX0.byIP9sGJBEu1KNeVEtoF2tsWgEOtohWDDZd-GgY2rUQ",
-          },
-        })
-          .then((res) => res.text())
-          .then((res) => console.log(res));
-      };
-    </script>
+    <script src="./backoffice.js"></script>
   </body>
 </html>
