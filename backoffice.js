@@ -14,11 +14,12 @@
 
       console.log(paramID);
 
+      
       const method = paramID ? "PUT" : "POST";
       const endpoint = paramID
         ? "https://striveschool-api.herokuapp.com/api/product/" + paramID
         : "https://striveschool-api.herokuapp.com/api/product/";
-
+        
       window.onload = async () => {
         if (paramID) {
           try {
@@ -33,14 +34,16 @@
             
             let poster = document.getElementById("poster")
             poster.innerHTML = "Edit product"
+            
 
             let editor = document.getElementById("editor")
             editor.innerHTML = "Change"
+            editor.className = " btn btn-primary"
 
           } catch (err) {
             console.log(err);
           }
-        } else {
+        
         }
       };
 
@@ -56,9 +59,9 @@
           };
 
           const response = await fetch(
-            "https://striveschool-api.herokuapp.com/api/product/",
+            endpoint,
             {
-              method: "POST",
+              method: method,
               body: JSON.stringify(myObject),
               headers: {
                 "Content-Type": "application/json",
@@ -92,3 +95,8 @@
             window.location.assign("/");
           });
       };
+
+let validated = (event) => {
+  event.target.form.classList.add("validate")
+
+}
