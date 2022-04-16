@@ -71,9 +71,9 @@ let postProduct = async (event) => {
         alert.innerHTML = 'Update product'
         form.innerHTML = `<div id="alerter" class="alert alert-success" role="alert">
           You have successful made an update
-        </div> <img
+        </div><img
       src="https://img.freepik.com/free-vector/successful-business-man-holding-trophy_1150-35042.jpg?size=626&ext=jpg&ga=GA1.2.1448366003.1641081600"
-      alt="" class="d-flex m-auto"
+      alt="" class="d-flex m-auto justify-content-center" height="50%" width="50%"
     /> <a href="./index.html" class="btn btn-success m-auto">Back</a>`
 
         // window.location.assign('/')
@@ -81,10 +81,11 @@ let postProduct = async (event) => {
         alert.innerHTML = 'Fill to post product'
         form.innerHTML = `<div id="alerter" class="alert alert-success" role="alert">
           You have successful post a product
-        </div> <img
-      src="https://memesbams.com/wp-content/uploads/2017/12/Good-Luck-Quotes.jpg" height="400px"
-      alt="" class="d-flex m-auto"/>
-      <a href="./index.html" class="btn btn-success m-auto">Back</a>`
+        </div> 
+       <img
+      src="https://memesbams.com/wp-content/uploads/2017/12/Good-Luck-Quotes.jpg" 
+      alt="" class="d-flex m-auto justify-content-center" height="30%" width="30%"/>
+      <a href="./index.html" class="btn btn-success m-auto">Back</a></div>`
       }
     }
   } catch (err) {
