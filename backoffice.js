@@ -106,7 +106,6 @@ let deleteProduct = () => {
     .then((res) => {
       console.log(res);
       window.location.assign("/");
-      // window.location.assign("/");
     });
 };
 
