@@ -78,7 +78,7 @@ let postProduct = async (event) => {
 
         // window.location.assign('/')
       } else {
-        alert.innerHTML = "Fill to post product in a sec";
+        alert.innerHTML = "Fill to post product";
         form.innerHTML = `<div id="alerter" class="alert alert-success" role="alert">
           You have successful posted a product
         </div> 
