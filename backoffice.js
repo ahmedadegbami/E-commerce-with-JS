@@ -102,9 +102,9 @@ let deleteProduct = () => {
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YmZhNWE5MDIzOTAwMTVkOTY1ZGIiLCJpYXQiOjE2NDk4NTIzMjUsImV4cCI6MTY1MTA2MTkyNX0.byIP9sGJBEu1KNeVEtoF2tsWgEOtohWDDZd-GgY2rUQ",
     },
   })
-    .then((res) => res.text())
-    .then((res) => {
-      console.log(res);
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
       window.location.assign("/");
     });
 };
