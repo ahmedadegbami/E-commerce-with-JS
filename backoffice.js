@@ -109,6 +109,6 @@ let deleteProduct = () => {
     });
 };
 
-let validated = (event) => {
+const validated = (event) => {
   event.target.form.classList.add("validate");
 };
